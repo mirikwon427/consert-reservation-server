@@ -37,3 +37,14 @@ out/
 .vscode/
 
 data
+
+# MacOS
+.DS_Store
+
+# 로그/임시파일
+*.log
+*.tmp
+
+# 환경설정/보안
+.env
+*.local
