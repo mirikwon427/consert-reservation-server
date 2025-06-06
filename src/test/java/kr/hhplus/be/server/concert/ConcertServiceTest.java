@@ -16,9 +16,9 @@ public class ConcertServiceTest {
   void 콘서트_목록_조회_성공() {
     // given
     List<Concert> concerts = List.of(
-        new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어", LocalDateTime.now(), LocalDateTime.now()),
-        new Concert(2L, "2025 IU", "IU", "상암월드컵경기장", "아이유 앙코르 콘서트", LocalDateTime.now(), LocalDateTime.now()),
-        new Concert(3L, "2025 NewJeans", "NewJeans", "상암월드컵경기장", "NewJeans 단독 콘서트", LocalDateTime.now(), LocalDateTime.now())
+        new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어"),
+        new Concert(2L, "2025 IU", "IU", "상암월드컵경기장", "아이유 앙코르 콘서트"),
+        new Concert(3L, "2025 NewJeans", "NewJeans", "상암월드컵경기장", "NewJeans 단독 콘서트")
     );
     given(concertRepository.findAll()).willReturn(concerts);
 
@@ -40,9 +40,9 @@ public class ConcertServiceTest {
   void 콘서트_날짜_목록_조회_성공() {
     // given
     List<Concert> concerts = List.of(
-        new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어", LocalDateTime.now(), LocalDateTime.now()),
-        new Concert(2L, "2025 IU", "IU", "상암월드컵경기장", "아이유 앙코르 콘서트", LocalDateTime.now(), LocalDateTime.now()),
-        new Concert(3L, "2025 NewJeans", "NewJeans", "상암월드컵경기장", "NewJeans 단독 콘서트", LocalDateTime.now(), LocalDateTime.now())
+        new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어"),
+        new Concert(2L, "2025 IU", "IU", "상암월드컵경기장", "아이유 앙코르 콘서트"),
+        new Concert(3L, "2025 NewJeans", "NewJeans", "상암월드컵경기장", "NewJeans 단독 콘서트")
     );
     List<ConcertDate> btsDates = List.of(
         new ConcertDate(1L, 1L, LocalDate.of(2025, 7, 25), LocalDateTime.of(2025, 7, 25, 18, 0), LocalDateTime.of(2025, 7, 25, 21, 0), LocalDateTime.now()),
