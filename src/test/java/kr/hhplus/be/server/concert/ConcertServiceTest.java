@@ -9,10 +9,23 @@ import java.util.List;
 import kr.hhplus.be.server.concert.dto.response.ConcertWithDatesResponse;
 import kr.hhplus.be.server.concert.entity.Concert;
 import kr.hhplus.be.server.concert.entity.ConcertDate;
+import kr.hhplus.be.server.concert.repository.ConcertDateRepository;
+import kr.hhplus.be.server.concert.repository.ConcertRepository;
+import kr.hhplus.be.server.concert.service.ConcertService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 public class ConcertServiceTest {
+  @Mock
+  private ConcertRepository concertRepository;
+
+  @Mock
+  private ConcertDateRepository concertDateRepository;
+
+  @InjectMocks
+  private ConcertService concertService;
 
   @Test
   @DisplayName("콘서트 목록 조회 성공")
