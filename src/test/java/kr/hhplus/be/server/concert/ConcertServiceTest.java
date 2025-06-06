@@ -30,9 +30,9 @@ public class ConcertServiceTest {
 
     // then
     assertThat(result).hasSize(3);
-    assertThat(result.get(0).getConcertName()).isEqualTo("2025 BTS");
-    assertThat(result.get(1).getConcertName()).isEqualTo("2025 IU");
-    assertThat(result.get(2).getConcertName()).isEqualTo("2025 NewJeans");
+    assertThat(result.get(0).getName()).isEqualTo("2025 BTS");
+    assertThat(result.get(1).getName()).isEqualTo("2025 IU");
+    assertThat(result.get(2).getName()).isEqualTo("2025 NewJeans");
     assertThat(result.get(0).getVenue()).isEqualTo("잠실올림픽경기장");
     assertThat(result.get(1).getVenue()).isEqualTo("상암월드컵경기장");
     assertThat(result.get(2).getVenue()).isEqualTo("상암월드컵경기장");
