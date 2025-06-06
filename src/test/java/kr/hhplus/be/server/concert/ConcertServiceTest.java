@@ -45,16 +45,16 @@ public class ConcertServiceTest {
         new Concert(3L, "2025 NewJeans", "NewJeans", "상암월드컵경기장", "NewJeans 단독 콘서트")
     );
     List<ConcertDate> btsDates = List.of(
-        new ConcertDate(1L, 1L, LocalDate.of(2025, 7, 25), LocalDateTime.of(2025, 7, 25, 18, 0), LocalDateTime.of(2025, 7, 25, 21, 0), LocalDateTime.now()),
-        new ConcertDate(2L, 1L, LocalDate.of(2025, 7, 26), LocalDateTime.of(2025, 7, 26, 18, 0), LocalDateTime.of(2025, 7, 26, 21, 0), LocalDateTime.now())
+        new ConcertDate(1L, 1L, LocalDate.of(2025, 7, 25), LocalDateTime.of(2025, 7, 25, 18, 0), LocalDateTime.of(2025, 7, 25, 21, 0)),
+        new ConcertDate(2L, 1L, LocalDate.of(2025, 7, 26), LocalDateTime.of(2025, 7, 26, 18, 0), LocalDateTime.of(2025, 7, 26, 21, 0))
     );
     List<ConcertDate> iuDates = List.of(
-        new ConcertDate(3L, 2L, LocalDate.of(2025, 8, 10), LocalDateTime.of(2025, 8, 10, 19, 0), LocalDateTime.of(2025, 8, 10, 22, 0), LocalDateTime.now()),
-        new ConcertDate(4L, 2L, LocalDate.of(2025, 8, 11), LocalDateTime.of(2025, 8, 11, 19, 0), LocalDateTime.of(2025, 8, 11, 22, 0), LocalDateTime.now())
+        new ConcertDate(3L, 2L, LocalDate.of(2025, 8, 10), LocalDateTime.of(2025, 8, 10, 19, 0), LocalDateTime.of(2025, 8, 10, 22, 0)),
+        new ConcertDate(4L, 2L, LocalDate.of(2025, 8, 11), LocalDateTime.of(2025, 8, 11, 19, 0), LocalDateTime.of(2025, 8, 11, 22, 0))
     );
     List<ConcertDate> newJeansDates = List.of(
-        new ConcertDate(5L, 3L, LocalDate.of(2025, 9, 10), LocalDateTime.of(2025, 9, 10, 19, 0), LocalDateTime.of(2025, 9, 10, 22, 0), LocalDateTime.now()),
-        new ConcertDate(6L, 3L, LocalDate.of(2025, 9, 11), LocalDateTime.of(2025, 9, 11, 19, 0), LocalDateTime.of(2025, 9, 11, 22, 0), LocalDateTime.now())
+        new ConcertDate(5L, 3L, LocalDate.of(2025, 9, 10), LocalDateTime.of(2025, 9, 10, 19, 0), LocalDateTime.of(2025, 9, 10, 22, 0)),
+        new ConcertDate(6L, 3L, LocalDate.of(2025, 9, 11), LocalDateTime.of(2025, 9, 11, 19, 0), LocalDateTime.of(2025, 9, 11, 22, 0))
     );
 
     given(concertRepository.findAll()).willReturn(concerts);

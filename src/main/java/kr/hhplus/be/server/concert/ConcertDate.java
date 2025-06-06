@@ -38,4 +38,24 @@ public class ConcertDate extends BaseTimeEntity {
     this.startTime = startTime;
     this.endTime = endTime;
   }
+
+  public Long getId() {
+    return id;
+  }
+
+  public Long getConcertId() {
+    return concertId;
+  }
+
+  public LocalDate getConcertDate() {
+    return concertDate;
+  }
+
+  public LocalDateTime getStartTime() {
+    return startTime;
+  }
+
+  public LocalDateTime getEndTime() {
+    return endTime;
+  }
 }
