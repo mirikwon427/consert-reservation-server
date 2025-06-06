@@ -2,6 +2,7 @@ package kr.hhplus.be.server.concert;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,22 +15,15 @@ import kr.hhplus.be.server.concert.repository.ConcertRepository;
 import kr.hhplus.be.server.concert.service.ConcertService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 public class ConcertServiceTest {
-  @Mock
-  private ConcertRepository concertRepository;
-
-  @Mock
-  private ConcertDateRepository concertDateRepository;
-
-  @InjectMocks
-  private ConcertService concertService;
 
   @Test
   @DisplayName("콘서트 목록 조회 성공")
   void 콘서트_목록_조회_성공() {
+    ConcertRepository concertRepository = mock(ConcertRepository.class);
+    ConcertDateRepository concertDateRepository = mock(ConcertDateRepository.class);
+    ConcertService concertService = new ConcertService(concertRepository, concertDateRepository);
     // given
     List<Concert> concerts = List.of(
         new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어"),
@@ -54,6 +48,10 @@ public class ConcertServiceTest {
   @Test
   @DisplayName("각 콘서트 공연 날짜 리스트 반환")
   void 콘서트_날짜_목록_조회_성공() {
+    ConcertRepository concertRepository = mock(ConcertRepository.class);
+    ConcertDateRepository concertDateRepository = mock(ConcertDateRepository.class);
+    ConcertService concertService = new ConcertService(concertRepository, concertDateRepository);
+
     // given
     List<Concert> concerts = List.of(
         new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어"),

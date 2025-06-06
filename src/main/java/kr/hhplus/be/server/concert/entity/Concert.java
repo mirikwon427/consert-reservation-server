@@ -36,4 +36,23 @@ public class Concert extends BaseTimeEntity {
     this.description = description;
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getArtist() {
+    return artist;
+  }
+
+  public String getVenue() {
+    return venue;
+  }
+
+  public String getDescription() {
+    return description;
+  }
 }
