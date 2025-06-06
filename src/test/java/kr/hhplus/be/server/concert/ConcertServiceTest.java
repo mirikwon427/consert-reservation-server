@@ -6,6 +6,9 @@ import static org.mockito.BDDMockito.given;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import kr.hhplus.be.server.concert.dto.response.ConcertWithDatesResponse;
+import kr.hhplus.be.server.concert.entity.Concert;
+import kr.hhplus.be.server.concert.entity.ConcertDate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
