@@ -1,6 +1,7 @@
-package kr.hhplus.be.server.concert;
+package kr.hhplus.be.server.concert.controller;
 
 import java.util.List;
+import kr.hhplus.be.server.concert.service.ConcertService;
 import kr.hhplus.be.server.concert.dto.response.ConcertWithDatesResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
