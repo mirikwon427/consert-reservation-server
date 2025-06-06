@@ -35,5 +35,48 @@ public class ConcertServiceTest {
     assertThat(result.get(2).getVenue()).isEqualTo("상암월드컵경기장");
   }
 
+  @Test
+  @DisplayName("각 콘서트 공연 날짜 리스트 반환")
+  void 콘서트_날짜_목록_조회_성공() {
+    // given
+    List<Concert> concerts = List.of(
+        new Concert(1L, "2025 BTS", "BTS", "잠실올림픽경기장", "BTS 월드투어", LocalDateTime.now(), LocalDateTime.now()),
+        new Concert(2L, "2025 IU", "IU", "상암월드컵경기장", "아이유 앙코르 콘서트", LocalDateTime.now(), LocalDateTime.now()),
+        new Concert(3L, "2025 NewJeans", "NewJeans", "상암월드컵경기장", "NewJeans 단독 콘서트", LocalDateTime.now(), LocalDateTime.now())
+    );
+    List<ConcertDate> btsDates = List.of(
+        new ConcertDate(1L, 1L, LocalDate.of(2025, 7, 25), LocalDateTime.of(2025, 7, 25, 18, 0), LocalDateTime.of(2025, 7, 25, 21, 0), LocalDateTime.now()),
+        new ConcertDate(2L, 1L, LocalDate.of(2025, 7, 26), LocalDateTime.of(2025, 7, 26, 18, 0), LocalDateTime.of(2025, 7, 26, 21, 0), LocalDateTime.now())
+    );
+    List<ConcertDate> iuDates = List.of(
+        new ConcertDate(3L, 2L, LocalDate.of(2025, 8, 10), LocalDateTime.of(2025, 8, 10, 19, 0), LocalDateTime.of(2025, 8, 10, 22, 0), LocalDateTime.now()),
+        new ConcertDate(4L, 2L, LocalDate.of(2025, 8, 11), LocalDateTime.of(2025, 8, 11, 19, 0), LocalDateTime.of(2025, 8, 11, 22, 0), LocalDateTime.now())
+    );
+    List<ConcertDate> newJeansDates = List.of(
+        new ConcertDate(5L, 3L, LocalDate.of(2025, 9, 10), LocalDateTime.of(2025, 9, 10, 19, 0), LocalDateTime.of(2025, 9, 10, 22, 0), LocalDateTime.now()),
+        new ConcertDate(6L, 3L, LocalDate.of(2025, 9, 11), LocalDateTime.of(2025, 9, 11, 19, 0), LocalDateTime.of(2025, 9, 11, 22, 0), LocalDateTime.now())
+    );
+
+    given(concertRepository.findAll()).willReturn(concerts);
+    given(concertDateRepository.findAllByConcertId(1L)).willReturn(btsDates);
+    given(concertDateRepository.findAllByConcertId(2L)).willReturn(iuDates);
+    given(concertDateRepository.findAllByConcertId(3L)).willReturn(newJeansDates);
+
+    // when
+    List<ConcertWithDatesResponse> result = concertService.getAllConcertsWithDates();
+
+    // then
+    assertThat(result.get(0).getConcertDates()).hasSize(2)
+        .extracting(ConcertDate::getConcertDate)
+        .containsExactly(LocalDate.of(2025, 7, 25), LocalDate.of(2025, 7, 26));
+
+    assertThat(result.get(1).getConcertDates()).hasSize(2)
+        .extracting(ConcertDate::getConcertDate)
+        .containsExactly(LocalDate.of(2025, 8, 10), LocalDate.of(2025, 8, 11));
+
+    assertThat(result.get(2).getConcertDates()).hasSize(2)
+        .extracting(ConcertDate::getConcertDate)
+        .containsExactly(LocalDate.of(2025, 9, 10), LocalDate.of(2025, 9, 11));
+  }
 
 }
