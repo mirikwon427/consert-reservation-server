@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 import kr.hhplus.be.server.entity.user.Role;
 import kr.hhplus.be.server.entity.user.User;
+import kr.hhplus.be.server.reservation.entity.Reservation;
 import kr.hhplus.be.server.reservation.entity.Seat;
 
 public final class ReservationTestFixture {
@@ -53,6 +54,35 @@ public final class ReservationTestFixture {
       }
       return seat;
     }
+  }
+
+  public static class ReservationFixture {
+
+    private static final long DEFAULT_HOLD_MINUTES = 5;
+
+    public static Reservation createPendingReservation(User user, Seat seat, Long reservationId) {
+      Reservation reservation = Reservation.builder()
+          .user(user)
+          .seat(seat)
+          .holdDurationMinutes(DEFAULT_HOLD_MINUTES)
+          .build();
+
+      try {
+        Field idField = Reservation.class.getDeclaredField("id");
+        idField.setAccessible(true);
+        idField.set(reservation, reservationId);
+      } catch (Exception e) {
+        throw new RuntimeException("테스트용 Reservation ID 설정 중 오류 발생", e);
+      }
+      return reservation;
+    }
+
+    public static Reservation createConfirmedReservation(User user, Seat seat, Long reservationId) {
+      Reservation reservation = createPendingReservation(user, seat, reservationId);
+      reservation.confirm();
+      return reservation;
+    }
+
   }
 }
 

@@ -49,6 +49,7 @@ public class Reservation extends BaseTimeEntity {
     this.status = ReservationStatus.PENDING_PAYMENT;
     this.expiresAt = LocalDateTime.now().plusMinutes(holdDurationMinutes);
   }
+
   public void confirm() {
     if (this.status != ReservationStatus.PENDING_PAYMENT) {
       throw new IllegalStateException("예약 상태가 아닙니다.");
