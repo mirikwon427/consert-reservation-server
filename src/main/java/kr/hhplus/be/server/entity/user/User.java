@@ -56,4 +56,10 @@ public class User extends BaseTimeEntity {
     this.role = role;
   }
 
+  public void addBalance(BigDecimal amount) {
+    if (amount.compareTo(BigDecimal.ZERO) < 0) {
+      throw new IllegalArgumentException("충전 금액은 0보다 작을 수 없습니다.");
+    }
+    this.balance = this.balance.add(amount);
+  }
 }

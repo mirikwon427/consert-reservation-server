@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.util.UUID;
 import kr.hhplus.be.server.entity.user.Role;
 import kr.hhplus.be.server.entity.user.User;
+import kr.hhplus.be.server.point.entity.PointChargeHistory;
+import kr.hhplus.be.server.point.entity.TransactionStatus;
+import kr.hhplus.be.server.point.entity.TransactionType;
 
 public class PointTestFixture {
 
