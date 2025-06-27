@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.reservation.adapter.in.web.dto.response;
+package kr.hhplus.be.server.reservation.adapter.in.dto.response;
 
 import java.time.LocalDateTime;
 import kr.hhplus.be.server.reservation.application.port.in.ReservationResult;
