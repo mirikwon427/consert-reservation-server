@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.point;
 
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;
 import kr.hhplus.be.server.point.controller.PointController;
 import kr.hhplus.be.server.point.dto.request.PointChargeRequest;
+import kr.hhplus.be.server.point.dto.response.PointChargeResponse;
 import kr.hhplus.be.server.point.service.PointService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,14 +38,15 @@ public class PointControllerTest {
     Long userId = 1L;
     BigDecimal chargeAmount = new BigDecimal("10000");
     PointChargeRequest requestDto = new PointChargeRequest(userId, chargeAmount);
+    PointChargeResponse mockResponse = new PointChargeResponse(userId, chargeAmount);
 
-    String requestBody = objectMapper.writeValueAsString(requestDto);
+    given(pointService.charge(userId, chargeAmount)).willReturn(mockResponse);
 
     // when & then
     mockMvc.perform(
         post("/api/point/charge")
             .contentType("application/json")
-            .content(requestBody)
+            .content(objectMapper.writeValueAsString(requestDto))
     )
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.userId").value(userId))

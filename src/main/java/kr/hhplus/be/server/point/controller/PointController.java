@@ -22,9 +22,7 @@ public class PointController {
 
   @PostMapping("/charge")
   public ResponseEntity<PointChargeResponse> charge(@Valid @RequestBody PointChargeRequest request) {
-    pointService.charge(request.getUserId(), request.getAmount());
-
-    return ResponseEntity.ok(new PointChargeResponse(request.getUserId(), request.getAmount()));
+    return ResponseEntity.ok(pointService.charge(request.getUserId(), request.getAmount()));
   }
 
 }

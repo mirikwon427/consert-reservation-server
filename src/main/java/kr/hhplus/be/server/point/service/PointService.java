@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 import kr.hhplus.be.server.entity.user.User;
 import kr.hhplus.be.server.entity.user.UserRepository;
+import kr.hhplus.be.server.point.dto.response.PointChargeResponse;
 import kr.hhplus.be.server.point.entity.PointChargeHistory;
 import kr.hhplus.be.server.point.entity.TransactionStatus;
 import kr.hhplus.be.server.point.entity.TransactionType;
@@ -19,7 +20,8 @@ public class PointService {
   private final UserRepository userRepository;
 
   @Transactional
-  public void charge(Long userId, BigDecimal amount) {
+  public PointChargeResponse charge(Long userId, BigDecimal amount) {
+
     User user = userRepository.findById(userId)
         .orElseThrow(() -> new RuntimeException("사용자가 존재하지 않습니다."));
 
@@ -34,5 +36,7 @@ public class PointService {
         .build();
 
     pointChargeHistoryRepository.save(pointChargeHistory);
+
+    return new PointChargeResponse(userId, amount);
   }
 }
