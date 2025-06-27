@@ -1,6 +1,6 @@
 package kr.hhplus.be.server.reservation.application.port.in;
 
-import kr.hhplus.be.server.reservation.entity.Reservation;
+import kr.hhplus.be.server.reservation.domain.Reservation;
 import lombok.Getter;
 import java.time.LocalDateTime;
 

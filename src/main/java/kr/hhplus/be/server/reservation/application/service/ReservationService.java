@@ -9,8 +9,8 @@ import kr.hhplus.be.server.reservation.application.port.out.LoadSeatPort;
 import kr.hhplus.be.server.reservation.application.port.out.LoadUserPort;
 import kr.hhplus.be.server.reservation.application.port.out.SaveReservationPort;
 import kr.hhplus.be.server.reservation.application.port.out.UpdateSeatPort;
-import kr.hhplus.be.server.reservation.entity.Reservation;
-import kr.hhplus.be.server.reservation.entity.Seat;
+import kr.hhplus.be.server.reservation.domain.Reservation;
+import kr.hhplus.be.server.reservation.domain.Seat;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

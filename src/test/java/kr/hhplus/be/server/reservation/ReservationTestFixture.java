@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.util.UUID;
 import kr.hhplus.be.server.entity.user.Role;
 import kr.hhplus.be.server.entity.user.User;
-import kr.hhplus.be.server.reservation.entity.Reservation;
-import kr.hhplus.be.server.reservation.entity.Seat;
+import kr.hhplus.be.server.reservation.domain.Reservation;
+import kr.hhplus.be.server.reservation.domain.Seat;
 
 public final class ReservationTestFixture {
 
