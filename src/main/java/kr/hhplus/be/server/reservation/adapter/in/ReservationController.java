@@ -1,8 +1,8 @@
-package kr.hhplus.be.server.reservation.adapter.in.web;
+package kr.hhplus.be.server.reservation.adapter.in;
 
 import jakarta.validation.Valid;
-import kr.hhplus.be.server.reservation.adapter.in.web.dto.request.ReservationRequest;
-import kr.hhplus.be.server.reservation.adapter.in.web.dto.response.ReservationResponse;
+import kr.hhplus.be.server.reservation.adapter.in.dto.request.ReservationRequest;
+import kr.hhplus.be.server.reservation.adapter.in.dto.response.ReservationResponse;
 import kr.hhplus.be.server.reservation.application.port.in.ReservationResult;
 import kr.hhplus.be.server.reservation.application.port.in.ReserveSeatCommand;
 import kr.hhplus.be.server.reservation.application.port.in.ReserveSeatUseCase;

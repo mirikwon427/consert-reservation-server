@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.reservation.adapter.in.web.dto.request;
+package kr.hhplus.be.server.reservation.adapter.in.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
